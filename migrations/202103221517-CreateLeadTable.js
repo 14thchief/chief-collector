@@ -1,6 +1,6 @@
 'use strict';
 
-//const { Sequelize } = require("sequelize/types");
+const { Sequelize } = require("sequelize/types");
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
