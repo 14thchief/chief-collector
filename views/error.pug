@@ -1,6 +1,11 @@
-extends layout
+doctype html
+html(lang='en')
+    include common/head.pug
+    +head("Our valued customer")
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+    body
+      h1= message
+      h2= error.status
+      pre #{error.stack}
+      include common/footer.pug 
+      +footer()

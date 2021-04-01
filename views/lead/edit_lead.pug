@@ -1,6 +1,12 @@
-extends ../layout
+doctype html
+html(lang='en')
+    include ../common/head.pug
+    +head("Our valued customers")
 
-block content
-    form(action="/lead/" + lead.id + "/edit", method="POST")
-        input(name="lead_email", type="email", placeholder="Enter your email address", value= lead.email)
-        button(type="submit") Save
+    body
+        form(action="/lead/" + lead.id + "/edit", method="POST")
+            input(name="lead_email", type="email", placeholder="Enter your email address", value= lead.email)
+            button(type="submit") Save
+
+        include ../common/footer.pug 
+        +footer()
