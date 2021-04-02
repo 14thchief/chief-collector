@@ -1,0 +1,11 @@
+mixin navbar(navbar)
+    nav.navbar-expand.navbar-light.bg-light
+      a(href="/", aria-label="Chief Collector").navbar-brand.mr-0.mr-md-2 Chief Collector
+      button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+        span.navbar-toggler-icon
+      div.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto 
+          li.nav-item 
+            a.nav-link(href="/") Home
+          li.nav-item 
+            a.nav-link(href="/leads") Leads

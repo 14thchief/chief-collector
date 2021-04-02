@@ -1,25 +1,31 @@
 doctype html
 html(lang='en')
   include common/head.pug
-  +head("Our valued customers")
+  +head("Get Better Deals")
 
   body
-    h1= title
-    p Welcome to #{title}
-    form(action='/', method="POST")
-      input(name="lead_email", type="email", placeholder="Enter your email address")
-      button(type="submit") Submit
+    header
+      include common/navbar.pug
+      +navbar()
+      
+      div.container 
+        div.row.align-items-center
+          div.col-md-6.order-md1.text-center.text-md-left.pr-md-5 
+            h1.mb-3 Chief Collector
+            p.lead Use this page to collect emails for sales leads and save them to database.
+            p.lead.mb-4 View Database records upon submit.
+            p.lead.mb-4 For example: 
+            p.lead.mb-4 To get amazing deals, input your email below.
 
-    if leads
-      h1 Leads
-      for lead in leads
-        p(id=lead.id)
-          span #{lead.email}
-          | 
-          a(href="/lead/" + lead.id) Details
-          | 
-          button(onClick=`deleteLead('${lead.id}')`) Delete
+            form(action='/', method="POST")
+              div.input-group.mb-3
+                input(name="lead_email", type="email", placeholder="Enter your email address").form-control
+                div.input-group-append
+                  button(class="btn btn-primary", type="submit") Get Deals
+              small(id="emailHelp", class="form-text text-muted") We'll never share your email with anyone else.
 
+
+              
     include common/footer.pug 
     +footer()
     script(src="/javascripts/leads.js")

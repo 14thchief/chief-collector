@@ -1,0 +1,35 @@
+doctype html
+html(lang='en')
+    include ../common/head.pug
+    +head("Our valued customers")
+
+    body
+        header
+            include ../common/navbar
+            +navbar(navbar)
+            .container 
+            .row.align-items-center
+                .col-md-6.order-md1.text-center.text-md-left.pr-md-5
+                    h1 Leads
+                    br
+                    table.table 
+                        thead.thead-dark
+                            tr 
+                                th(scope="col") Email 
+                                th(scope="col") Update 
+                                th(scope="col") Trash
+                            tr 
+                        tbody
+                            tr(id=lead.id)
+                                td
+                                    span #{lead.email}
+                                td  
+                                    a(class="btn btn-warning", href="/lead/" + lead.id + "/edit") Edit
+                                td 
+                                    form(action="/lead/" + lead.id + "/delete", method="POST")
+                                        button(type="submit", class="btn btn-danger") Delete
+                            tr
+
+        include ../common/footer.pug 
+        +footer()
+        script(src="/javascripts/leads.js")
