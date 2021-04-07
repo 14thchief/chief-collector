@@ -12,13 +12,13 @@ html(lang='en')
                 .col-md-6.order-md1.text-center.text-md-left.pr-md-5
                     h1 Leads
                     br
-                    table.table 
-                        thead.thead-dark
+                    table.table.table-hover
+                        thead.thead-black
                             tr 
                                 th(scope="col") Email 
                                 th(scope="col") Actions 
                                 th(scope="col")
-                            tr 
+
                         tbody
                             for lead in leads
                                 tr(id=lead.id)
@@ -28,6 +28,7 @@ html(lang='en')
                                         a(href="/lead/" + lead.id) Details
                                     td 
                                         button(class="btn btn-danger" onClick=`deleteLead('${lead.id}')`).btn.btn-danger Delete
+                                tr
 
         include ../common/footer.pug 
         +footer()
