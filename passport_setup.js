@@ -1,7 +1,7 @@
-let models = require('/models/index')
+let models = require('./models/index')
 let localStrategy = require('passport-local').Strategy
 let bcrypt = require('bcrypt')
-
+let flash = require('connect-flash');
 
 const validPassword = function(user, password) {
     return bcrypt.compareSync(password, user.password);
@@ -49,5 +49,5 @@ module.exports = function(passport) {
         }).catch(err=>{
             done(err, false)
         })
-    }))
+    }));
 }

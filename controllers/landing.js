@@ -2,7 +2,7 @@
 const models = require('../models/index');
 
 exports.get_landing = function(req, res, next) {
-    res.render('landing', { title: 'Express' });
+    res.render('landing', { title: 'Express', user: req.user });
   };
 
 exports.submit_lead = function(req, res, next) {
@@ -16,7 +16,7 @@ exports.submit_lead = function(req, res, next) {
 
 exports.show_leads = function(req, res, next) {
   return models.Lead.findAll().then(leads => {
-    res.render('lead/leads', { title: 'Express', leads: leads });
+    res.render('lead/leads', { title: 'Express', leads: leads, user: req.user });
   })
 };
 
