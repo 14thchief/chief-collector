@@ -8,10 +8,10 @@ html(lang='en')
             include ../common/navbar
             +navbar(navbar)
             .container
-                .row 
-                    .col-sm-12.offset-md-2.col-md-8
+                .row.justify-content-center.mt-5
+                    .col-md-5.p-5.text-center.rounded.text-light.bg-primary
                         .jumbotron  
-                            h2.text-center Login page! 
+                            h2.text-center Login
                             .row.sm-12   
                                 .col-sm-12.col-md-12.col-xs-12
                                     form(action="/login", method="POST")
@@ -26,9 +26,9 @@ html(lang='en')
                                                 p.small.text-danger #{errors.password}
                                             button.mt-3.btn.btn-primary(type="submit") Log in
                                             p.m-2.mb-0
-                                                | Forgot your password? #[a(href="#") Reset now]
+                                                | Forgot your password? #[a.text-white(href="#") Reset now]
                                             p.m-0 
-                                                | Don't have an account yet? #[a(href="/signup") Sign up now]
+                                                | Don't have an account yet? #[a.text-white(href="/signup") Sign up now]
 
 
     include ../common/footer.pug 

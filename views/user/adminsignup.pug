@@ -8,8 +8,8 @@ html(lang='en')
         include ../common/navbar
         +navbar(navbar)
         .container
-            .row 
-                .col-sm-12.offset-md-2.col-md-8
+            .row.justify-content-center.mt-5
+                .col-md-6.p-5.text-center.rounded.text-light.bg-dark
                     .jumbotron  
                         h2.text-center Sign up 
                         .row    
@@ -24,7 +24,7 @@ html(lang='en')
                                         input(placeholder='Enter new password', required=true, name="password", type="password", value="").form-control
                                         if (errors && errors.password)
                                             p.small.text-danger #{errors.password};
-                                        button.mt-3.btn.btn-primary(type="submit") Sign up
+                                        button.mt-3.btn.btn-success(type="submit") Admin sign up
                                         p.mt-2.mb-0 
                                             | Do you already have an account? #[a(href="/login") Log in here]
 

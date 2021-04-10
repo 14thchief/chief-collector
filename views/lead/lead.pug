@@ -8,14 +8,14 @@ html(lang='en')
             include ../common/navbar
             +navbar(navbar)
             .container 
-            .row.align-items-center
+            .row.justify-content-center
                 .col-md-6.order-md-1.text-center.text-md-left.pr-md-5
                     h1 Leads
                     br
-                    table.table 
-                        thead.thead-dark
+                    table.table
+                        thead.thead-light.bg-dark
                             tr 
-                                th(scope="col") Email 
+                                th.text-light.bg-success(scope="col") Email 
                                 th(scope="col") Update 
                                 th(scope="col") Trash
                             tr 

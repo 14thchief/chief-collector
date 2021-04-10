@@ -7,32 +7,29 @@ html(lang='en')
         header
             include ../common/navbar
             +navbar(user)
-            .container 
-            .row.align-items-center
-                .col-md-6.order-md1.text-center.text-md-left.pr-md-5
-                    h1 Users
-                    br
-                    table.table.table-hover
-                        thead.thead-black.dark
-                            tr 
-                                th(scope="col") Email 
-                                th(scope="col") Password
-                                th(scope="col") Actions
-                                th(scope="col") Admin Status
+            .container
+                .row.justify-content-center.mt-5
+                    .col-md-6.order-md1.text-center.pr-md-5
+                        h1 Users
+                        br
+                        table.table.table-hover.border.border-dark
+                            thead.thead-black.dark
+                                tr 
+                                    th.text-light.bg-success(scope="col") Email
+                                    th(scope="col") Actions
+                                    th(scope="col") Admin Status
 
-                        tbody
-                            for user in users
-                                tr(id=user.id)
-                                    td
-                                        span #{user.email}
-                                    td 
-                                        span #{user.password}
-                                    td 
-                                        form(action="/user/" + user.id + "/delete", method="POST")
-                                            button(type="submit", class="btn btn-danger") Delete Permanently
-                                    td 
-                                        if user.is_admin 
-                                            p.text-success Admin user
+                            tbody
+                                for user in users
+                                    tr(id=user.id)
+                                        td.text-light.bg-dark
+                                            span #{user.email}
+                                        td 
+                                            form(action="/user/" + user.id + "/delete", method="POST")
+                                                button(type="submit", class="btn btn-danger") Delete Permanently
+                                        td 
+                                            if user.is_admin 
+                                                p.text-success Admin user
                                         
 
         include ../common/footer.pug 
