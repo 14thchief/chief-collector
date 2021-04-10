@@ -15,11 +15,15 @@ html(lang='en')
                         .row    
                             .col-sm-12.col-md-12
                                 form(action="/signup", method="POST")
-                                    .formgroup
+                                    div.formgroup
                                         label.small.mb-1.mt-3 Email: 
-                                        input(placeholder="Please enter your email", rerquired=true, name='email', type="email", value='').form-control
+                                        input(placeholder="Please enter your email", required=true, name='email', type="email", value=formData.email).form-control
+                                        if (errors && errors.email)
+                                            p.small.text-danger #{errors.email}
                                         label.small.mb-1.mt-3 Password: 
                                         input(placeholder='Enter new password', required=true, name="password", type="password", value="").form-control
+                                        if (errors && errors.password)
+                                            p.small.text-danger #{errors.password};
                                         button.mt-3.btn.btn-primary(type="submit") Sign up
                                         p.mt-2.mb-0 
                                             | Do you already have an account? #[a(href="/login") Log in here]
