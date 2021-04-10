@@ -1,7 +1,7 @@
-let models = require('../models')
+let models = require('../models');
 let validator = require('validator');
 
-const validateCreateUserFields = function(errors, req) {
+const validateCheckLoginFields = function(errors, req) {
     if (req.body.email){
         req.body.email = req.body.email.toLowerCase()
     }
@@ -17,21 +17,23 @@ const validateCreateUserFields = function(errors, req) {
 }
 
 
+const generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null)
+ }
+
 module.exports.validateUser = function(errors, req) {
     return new Promise(function(resolve, reject){
-        validateCreateUserFields(errors, req);
+        validateCheckLoginFields(errors, req);
         return models.User.findOne({
             where: {
                 email: req.body.email
             }
         }).then(u=> {
-            if (u != null) { 
-                errors["email"] = "Email is already in use. Please Login or reset your password";
+            if (u == null) { 
+                errors["password"] = "Wrong email or password entered. Sign up or reset password below";
             }
             resolve(errors);
         })
     })
    
 }
-
-

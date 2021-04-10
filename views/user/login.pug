@@ -18,8 +18,12 @@ html(lang='en')
                                         div.formgroup
                                             label.small.mb-1.mt-3 Email: 
                                             input(placeholder="Please enter your email", rerquired=true, name='email', type="email", value='').form-control
+                                            if (errors && errors.email)
+                                                p.small.text-danger #{errors.email}
                                             label.small.mb-1.mt-3 Password: 
                                             input(placeholder='Enter password', required=true, name="password", type="password", value="").form-control
+                                            if (errors && errors.password)
+                                                p.small.text-danger #{errors.password}
                                             button.mt-3.btn.btn-primary(type="submit") Log in
                                             p.m-2.mb-0
                                                 | Forgot your password? #[a(href="#") Reset now]

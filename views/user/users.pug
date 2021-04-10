@@ -1,0 +1,39 @@
+doctype html
+html(lang='en')
+    include ../common/head.pug
+    +head("Our valued customers")
+
+    body
+        header
+            include ../common/navbar
+            +navbar(user)
+            .container 
+            .row.align-items-center
+                .col-md-6.order-md1.text-center.text-md-left.pr-md-5
+                    h1 Users
+                    br
+                    table.table.table-hover
+                        thead.thead-black.dark
+                            tr 
+                                th(scope="col") Email 
+                                th(scope="col") Password
+                                th(scope="col") Actions
+                                th(scope="col") Admin Status
+
+                        tbody
+                            for user in users
+                                tr(id=user.id)
+                                    td
+                                        span #{user.email}
+                                    td 
+                                        span #{user.password}
+                                    td 
+                                        form(action="/user/" + user.id + "/delete", method="POST")
+                                            button(type="submit", class="btn btn-danger") Delete Permanently
+                                    td 
+                                        if user.is_admin 
+                                            p.text-success Admin user
+                                        
+
+        include ../common/footer.pug 
+        +footer()
