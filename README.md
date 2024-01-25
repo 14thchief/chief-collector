@@ -1,5 +1,5 @@
 # chief-collector
-MVP back-end application is built in the node JS environment with the express library. It collects emails via a form and stores them in a postgres database which is operated by sequelize ORM
+MVP Server-side rendered Node JS application is built using the express library. It collects emails via a form and stores them in a postgres database which is easily interfaced with through the Sequelize ORM
 ### `Technology`
 - NodeJS
 - Express
